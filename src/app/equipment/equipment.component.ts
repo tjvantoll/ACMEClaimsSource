@@ -35,9 +35,9 @@ export class EquipmentComponent implements OnInit {
       alert("Your device does not support Augmented reality");
     }
 
-    setTimeout(() => {
+    /*setTimeout(() => {
       this.logout();
-    }, 3000);
+    }, 3000);*/
   }
 
   logout() {

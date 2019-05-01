@@ -5,5 +5,5 @@ import { AnonGuard } from "./anon.guard";
 
 export const routes: Routes = [
   { path: "", redirectTo: "login", pathMatch: "full" },
-  { path: "login", component: LoginComponent, canActivate: [AnonGuard] }
+  { path: "login", component: LoginComponent }
 ];

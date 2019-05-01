@@ -17,11 +17,12 @@ export class AnonGuard implements CanActivate {
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
   ): Observable<boolean> | Promise<boolean> | boolean {
-    if (!this.service.isLoggedIn()) {
+    return false;
+    /*if (!this.service.isLoggedIn()) {
       return true;
     } else {
       this.router.navigate(["/"]);
       return false;
-    }
+    }*/
   }
 }
