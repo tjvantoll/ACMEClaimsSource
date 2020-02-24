@@ -1,7 +1,7 @@
 import { Component, OnInit, NgZone } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
 
-import { BackendService, Ticket } from "../../backend.service";
+import { BackendService } from "../../backend.service";
 
 @Component({
   selector: "app-details",
@@ -9,7 +9,7 @@ import { BackendService, Ticket } from "../../backend.service";
   styleUrls: ["./ticket-detail.component.css"]
 })
 export class TicketDetailComponent implements OnInit {
-  ticket: Ticket;
+  ticket;
 
   constructor(
     private backendService: BackendService,

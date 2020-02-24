@@ -1,12 +1,12 @@
 import { Component, OnInit, NgZone } from "@angular/core";
-import { BackendService, Ticket } from "../../backend.service";
+import { BackendService } from "../../backend.service";
 @Component({
   selector: "app-tickets",
   templateUrl: "./tickets.component.html",
   styleUrls: ["./tickets.component.css"]
 })
 export class TicketsComponent implements OnInit {
-  tickets: Ticket[];
+  tickets;
   pieData;
   constructor(private zone: NgZone, private backendService: BackendService) {}
   ngOnInit() {
@@ -37,7 +37,7 @@ export class TicketsComponent implements OnInit {
       }
     ];
   }
-  async setStatus(ticket: Ticket, status) {
+  async setStatus(ticket, status) {
     ticket.Status = status;
     await this.backendService.editTicketStatus(ticket);
     this.processPieData();

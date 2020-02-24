@@ -3,7 +3,7 @@ import { ActivatedRoute } from "@angular/router";
 import { RadSideDrawerComponent } from "nativescript-ui-sidedrawer/angular";
 import { Page } from "tns-core-modules/ui/page";
 
-import { BackendService, Ticket } from "../../backend.service";
+import { BackendService } from "../../backend.service";
 import { ColorUtility } from "../../utils/colors";
 import { Toasty } from "nativescript-toasty";
 
@@ -14,7 +14,7 @@ import { Toasty } from "nativescript-toasty";
   moduleId: module.id
 })
 export class TicketDetailComponent implements OnInit {
-  ticket: Ticket;
+  ticket;
 
   @ViewChild(RadSideDrawerComponent, null)
   public drawerComponent: RadSideDrawerComponent;
