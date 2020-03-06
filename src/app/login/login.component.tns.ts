@@ -3,6 +3,7 @@ import { NgZone } from "@angular/core";
 import { RouterExtensions } from "nativescript-angular/router";
 import { isIOS, isAndroid } from "tns-core-modules/platform";
 import { Page } from "tns-core-modules/ui/page";
+import { FingerprintAuth, BiometricIDAvailableResult } from "nativescript-fingerprint-auth";
 
 import { BackendService } from "../backend.service";
 
@@ -18,6 +19,7 @@ export class LoginComponent {
   isIOS = isIOS;
   isAndroid = isAndroid;
   processing = false;
+  private fingerprintAuth: FingerprintAuth;
 
   constructor(
     private _routerExtensions: RouterExtensions,
@@ -27,6 +29,7 @@ export class LoginComponent {
   ) {
     this.page.backgroundSpanUnderStatusBar = true;
     this.page.actionBarHidden = true;
+    this.fingerprintAuth = new FingerprintAuth();
   }
 
   async login() {
@@ -55,15 +58,26 @@ export class LoginComponent {
 
   private navigateToTickets() {
     this.zone.run(() => {
-      this._routerExtensions.navigate(["/tickets"], {
-        clearHistory: true,
-        animated: true,
-        transition: {
-          name: "slideTop",
-          duration: 350,
-          curve: "ease"
+      this.fingerprintAuth.available().then(result => {
+        if (result.any) {
+          this.fingerprintAuth.verifyFingerprint({})
+            .then(this.navigate);
+        } else {
+          this.navigate();
         }
       });
+    });
+  }
+
+  private navigate() {
+    this._routerExtensions.navigate(["/tickets"], {
+      clearHistory: true,
+      animated: true,
+      transition: {
+        name: "slideTop",
+        duration: 350,
+        curve: "ease"
+      }
     });
   }
 }
