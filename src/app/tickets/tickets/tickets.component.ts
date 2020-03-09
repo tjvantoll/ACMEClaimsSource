@@ -24,16 +24,16 @@ export class TicketsComponent implements OnInit {
     let data = this.tickets;
     this.pieData = [
       {
-        category: "Working",
-        value: data.filter(i => i.Status === "Working").length / data.length
+        category: "In Transit",
+        value: data.filter(i => i.Status === "In Transit").length / data.length
       },
       {
-        category: "New",
-        value: data.filter(i => i.Status === "New").length / data.length
+        category: "Processing",
+        value: data.filter(i => i.Status === "Processing").length / data.length
       },
       {
-        category: "Closed",
-        value: data.filter(i => i.Status === "Closed").length / data.length
+        category: "Shipped",
+        value: data.filter(i => i.Status === "Shipped").length / data.length
       }
     ];
   }

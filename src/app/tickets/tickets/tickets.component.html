@@ -10,11 +10,11 @@
       </kendo-grid-column>
       <kendo-grid-column field="Subject" title="SUBJECT" width="40" media="(min-width: 450px)">
       </kendo-grid-column>
-      <kendo-grid-column field="Description" title="DESCRIPTION" width="40" media="(min-width: 450px)">
-      </kendo-grid-column>
+      <!--<kendo-grid-column field="Description" title="DESCRIPTION" width="40" media="(min-width: 450px)">
+      </kendo-grid-column>-->
       <kendo-grid-column field="Status" title="STATUS" width="40" media="(min-width: 450px)">
         <ng-template kendoGridCellTemplate let-dataItem>
-          <span [className]="dataItem.Status==='New' ? 'text-success' : dataItem.Status=== 'Closed' ? 'text-warning':'text-danger'">
+          <span [className]="dataItem.Status==='Shipped' ? 'text-success' : dataItem.Status=== 'In Transit' ? 'text-warning':''">
             {{ dataItem.Status }}</span>
         </ng-template>
       </kendo-grid-column>
@@ -42,9 +42,10 @@
       </kendo-grid-column>
     </kendo-grid>
   </div>
+  <!--  <kendo-chart [seriesColors]="['#D63100', '#00880A','#DDAA00']"> -->
   <div class="col-sm-4 my-4">
     <h1>Stats</h1>
-    <kendo-chart [seriesColors]="['#D63100', '#00880A','#DDAA00']">
+    <kendo-chart [seriesColors]="['#DDAA00', 'black','#00880A']">
       <kendo-chart-legend position="top"></kendo-chart-legend>
       <kendo-chart-series>
         <kendo-chart-series-item type="pie" [data]="pieData" field="value" categoryField="category">

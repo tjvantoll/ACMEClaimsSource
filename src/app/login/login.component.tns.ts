@@ -61,7 +61,9 @@ export class LoginComponent {
       this.fingerprintAuth.available().then(result => {
         if (result.any) {
           this.fingerprintAuth.verifyFingerprint({})
-            .then(this.navigate);
+            .then(() => {
+              this.navigate();
+            });
         } else {
           this.navigate();
         }

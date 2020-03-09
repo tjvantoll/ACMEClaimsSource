@@ -34,6 +34,7 @@
     "@angular/platform-browser": "~8.2.0",
     "@angular/platform-browser-dynamic": "~8.2.0",
     "@angular/router": "~8.2.0",
+    "@progress-nativechat/nativescript-nativechat": "^3.0.0",
     "@progress/kendo-angular-buttons": "^5.0.0",
     "@progress/kendo-angular-charts": "^4.0.1",
     "@progress/kendo-angular-common": "^1.0.0",
