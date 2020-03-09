@@ -43,8 +43,7 @@ export class EquipmentComponent implements OnInit {
         y: args.position.y,
         z: args.position.z
       },
-      scale: 1,
-      mass: 20
+      scale: 0.2
     });
   }
 }

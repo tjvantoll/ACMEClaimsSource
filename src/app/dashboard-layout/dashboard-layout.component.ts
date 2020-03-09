@@ -13,6 +13,6 @@ export class DashboardLayoutComponent implements OnInit {
   ngOnInit() {}
   async logout() {
     await this.service.logout();
-    this.router.navigate(["login"]);
+    this.router.navigate([""]);
   }
 }
